@@ -2,8 +2,8 @@
 const CACHE_NAME = "v1_cache_PWA-DOM",
 urlsToCache = [
     "./",
-    "./dom-jon.css",
-    "./dom-jon.js",
+    "./style.css",
+    "./script.js",
     "./img"
 ]
 
