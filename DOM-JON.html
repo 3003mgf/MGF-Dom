@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en" data-dark>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hamburgers/1.2.1/hamburgers.min.css">
+    <link rel="stylesheet" href="dom-jon.css">
+
+    <meta name="description" content="DOM Exercises with PWA">
+    <meta name="theme-color" content="#d87093"> 
+    <meta name="MobileOptimized" content="width"> 
+    <meta name="HandheldFriendly" content="true">
+    <meta name="apple-mobile-web-app-capable" content="yes"> 
+    <meta name="apple-mobile-web-app-satus-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" href="img/ProgramadorFitness.png">
+    <link rel="apple-touch-icon" href="img/ProgramadorFitness.png">
+    <link rel="apple-touch-startup-image" href="img/ProgramadorFitness.png">
+    <link rel="manifest" href="manifest.json">
+    
+
+
+  </head>
+
+<body data-dark>
+<header class = "header">
+    <h1> DOM </h1>
+</header>
+
+<button id="burger" class= "burger hamburger hamburger--elastic" type="button">
+    <span class="hamburger-box">
+      <span class="hamburger-inner"></span>
+    </span>
+  </button>
+<aside id = "panel" class="panel">
+    <nav class="menu">  
+       <a data-scroll-spy href="#section1" > Watch & Alarm </a>  
+       <a data-scroll-spy href="#section2" > Keyboard Events </a>
+       <a data-scroll-spy href="#section3" > Regresive Counter </a>
+       <a data-scroll-spy href="#section4" > Responsive Design </a>
+       <a data-scroll-spy href="#section5" > Responsive Tester </a>
+       <a data-scroll-spy href="#section6" > Network Status </a>
+       <a data-scroll-spy href="#section7" > WebCam Detection </a>
+       <a data-scroll-spy href="#section8" > GeoLocation </a>
+       <a data-scroll-spy href="#section9" > Search Filter </a>
+       <a data-scroll-spy href="#section10" > Responsive Slider </a>
+       <a data-scroll-spy href="#section11" > Smart Video </a>
+       <a data-scroll-spy href="#section12" > Forms Validation </a>
+       <a data-scroll-spy href="#section13" > Voice Narrator </a>
+       <a data-scroll-spy href="#section14" > Uploader Drag & Drop / AJAX </a>
+
+    </nav>
+</aside>
+
+<main>
+    
+  
+    <section id = "section1" class="section" data-scroll-spy >
+        <h2 data-dark> Digital Watch & Alarm </h2>
+
+        <div id = "reloj"></div>
+    
+        <div id = "relojButtons">
+        <button id="boton1-section-1">Iniciar Reloj</button>
+        <button id="boton2-section-1">Detener Reloj</button>
+        <button id="boton3-section-1">Iniciar Alarma</button>
+        <button id="boton4-section-1">Detener Alarma</button>
+        </div>
+      </section>
+
+
+
+      <section id="section2" class="section" data-scroll-spy>
+       <h2 data-dark> Keyboard Events </h2>
+       <h4 data-dark> Up: Google ---  Down: Gmail  --- Left: YouTube ---  Right: Twitter </h4>
+      <article class= "stage">
+       <div class="ball">
+       </div>
+      </article>
+     </section>
+      
+
+
+      <section id="section3" class="section" data-scroll-spy>
+        <h2 data-dark > Regresive Counter </h2>
+        <article>
+        <br>
+        <div class="counter" data-dark> </div>
+      </article>
+    </section>
+      
+
+
+   <section id="section4" class="section" data-scroll-spy>
+    <h2 data-dark> Responsive Design with JavaScript </h2>
+    <br>
+    <br>
+    <div id="youtube"></div>
+    <br>
+    <br>
+    <div id="gmaps"></div>
+   </section>
+
+
+
+   <section id="section5" class="section" data-scroll-spy>
+    <h2 data-dark> Responsive Tester </h2>
+    <br>
+   <form id="responsive-tester">
+   <input type="url" name="URL" placeholder="URL" required>
+<br>
+   <input type="text" name="Width" placeholder="Width" required>
+<br>
+   <input type="text" name="Height" placeholder="Height" required>
+<br>
+<br>
+    <input type="submit" name="Test" value="Test">   
+    <input type="button" name="Close" value="Close">
+   </form>
+  </section>
+
+
+
+   <section id="section6" class="section" data-scroll-spy >
+    <h2 data-dark> Network Status </h2>
+    <br>
+    <div id="network"><h4>Connection Status: Online 😄</h4> </div>
+   </section>
+
+
+   <section id="section7" class="section" data-scroll-spy>
+<h2 data-dark> Web Cam Detection </h2>
+<br>
+<video id="webcam" class = "video"></video>
+   </section>
+
+
+   <section id="section8" class="section" data-scroll-spy>
+<h2 data-dark id = "geoTitle"> GeoLocation </h2>
+<div id="geolocation"></div>
+
+   </section>
+
+   <section id="section9" class="section" data-scroll-spy>
+    <h2 data-dark> Search Filter </h2>
+    <input type="search" placeholder="Search..." class = "cardFilter">
+    <br>
+    <br>
+    <article class="cards">
+       <figure class="card">
+        <img src="https://placeimg.com/200/200/tech" alt="Tech">
+        <figcaption> Tech </figcaption>
+       </figure>
+       <figure class="card">
+        <img src="https://placeimg.com/200/200/nature" alt="Nature">
+        <figcaption> Nature </figcaption>
+       </figure>
+       <figure class="card">
+        <img src="https://placeimg.com/200/200/any" alt="Any">
+        <figcaption> Any </figcaption>
+       </figure>
+       <figure class="card">
+        <img src="https://placeimg.com/200/200/people" alt="People">
+        <figcaption> People </figcaption>
+       </figure>
+       <figure class="card">
+        <img src="https://placeimg.com/200/200/arch" alt="Arch">
+        <figcaption> Architecture </figcaption>
+       </figure>
+       <figure class="card">
+        <img src="https://placeimg.com/200/200/animals" alt="Animals">
+        <figcaption> Animals </figcaption>
+       </figure>
+
+       
+    </article>
+   </section>
+
+
+   <section id="section10" class="section" data-scroll-spy>
+    <h2 data-dark> Responsive Slider </h2>
+    <div class="slider">
+      <div class="slider-slides">
+
+        <div class="slider-slide active">    <!-- Solo a la imagen con la que queremos empezar le colocamos la clase active. Con esta clase vamos a controlar cual imagen aparece en el slider -->
+        <img src="https://buenosamigosradio.es/wp-content/uploads/2022/02/Chanel-SloMo-400x400-1.jpg" alt="Chanel1">
+        </div>
+
+        <div class="slider-slide">
+        <img src="https://pbs.twimg.com/profile_images/1394049626895003649/Mf1Ejs05_400x400.jpg" alt="Chanel3">
+        </div>
+
+        <div class="slider-slide">
+        <img src="https://hips.hearstapps.com/es.h-cdn.co/hares/images/moda/tendencias/karl-lagerfeld-chanel-mejores-momentos-moda/3071540-1-esl-ES/chanel-segun-karl-lagerfeld-en-20-momentos-inolvidables.jpg" alt="ChanelBoy">
+        </div>
+
+        <div class="slider-slide">
+        <img src="https://cdn.shopify.com/s/files/1/1643/9139/products/DSC08843_400x.jpg?v=1632812407" alt="Chanel">
+        </div>
+
+      
+
+      </div>
+
+      <div class="sliderBtns">
+        <a class="prev" href="#">&lsaquo;</a>      <!-- %laquo;  es la flechita hacia la izquierda del button.   &raquo;    es la felchita hacia la derecha-->
+        <a class="next" href="#">&rsaquo;</a>
+      </div>
+
+    </div>
+   </section>
+   
+   <section id="section11" class="section" data-scroll-spy>
+    <h2 data-dark> Smart Video </h2>
+    <br>
+      <video class = "videoI" src="Assets/Gucci Gift.mp4" muted controls loop data-smart-video></video>
+  </section>
+<br>
+<br>
+<br>
+  <section id="section12" class="section" data-scroll-spy>
+    <h2 data-dark> Forms Validation </h2>
+    <form class="form" action="https://formsubmit.co/gramajofeijoonacho@gmail.com" method="POST" target="_blank" rel="noopener">
+      <legend> What you thinking? 💭 </legend>
+      <input type="text" name="name" placeholder="Write your name" title="Name only accept letters and blank spaces" pattern = "^[A-Za-zñÑ\s]+$" required>
+      <input type="text" name="email" placeholder="Write your email" title="Email only accept a valid email format" pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$" required >
+      <input type="text" name="subject" placeholder="Subject" title='Only "@(),.?/" are allowed' pattern="^[A-Za-zñÑ!@(),.?/:\s0-9]+$" required >
+      <textarea name="comments" cols="50" rows="10" class="form" data-pattern="^.{1,255}$" title="Comments can't have more than 255 characters" placeholder="Tell us..." required></textarea>
+     <input id = "submit" type="submit" value="Send" >
+     <div class="form-loader none">
+      <img src="Assets/rings.svg" alt="Loader" style="width:5rem;height:5rem;">
+     </div>
+     <div class="form-response none">
+      <p> Thank you! Our team will be in touch with you soon! 🕝 </p>
+     </div>
+    </form>
+</section>
+
+<section id="section13" class="section textA" data-scroll-spy="">
+<h2 data-dark> Voice Narrator </h2>
+<select id="speech-select">
+<option value=""> --- Choose a Voice --- </option>
+</select>
+<br><br>
+<textarea id="speech-text" class = "textA" cols="50" rows="5" placeholder="Type your text..."></textarea>
+<br>
+<br>
+<button id="speech-btn"> Read Text </button>
+</section>
+
+
+<br><br><br>
+
+<section id="section14" class="section" data-scroll-spy="">
+  <h2 data-dark> Uploader Drag & Drop / AJAX </h2>
+  <main class="dragdrop">
+    <article class="drop-zone">
+        <p class="p"> DRAG YOUR FILE HERE... </p>
+    </article>
+    </main>
+</section>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</main>
+
+<button class="scroll-top hidden"> &#11014 </button>
+
+<button class= "dark"> 🌙 </button>
+
+
+    <script src = "./dom-jon.js" type="module"></script>
+</body>
+</html>

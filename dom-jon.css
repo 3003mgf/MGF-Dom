@@ -1,0 +1,686 @@
+:root{
+font-style: sans-serif;
+font-size: 16px;
+background-color: blanchedalmond;
+--container-width: 1200px;
+
+}
+
+
+html{
+     box-sizing: border-box;
+     font-family: sans-serif;
+     font-size: 16px;
+     scroll-behavior: smooth;
+}
+
+*,
+*.before,
+*.after {
+    box-sizing: inherit;
+}
+
+
+body{
+    margin: 0;
+    overflow-x: hidden;
+}
+
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+
+header{
+    width: 100%;
+    z-index: 997;   /*Como en el slider pusimos position relative, los sliders taparian el header, con esto lo solucionamos*/
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    position: sticky;
+    top: 0;
+    padding: 0.1rem;
+    background-color: rgb(217, 73, 121); 
+    color: blanchedalmond;
+    border-bottom-left-radius: 3rem;
+    border-bottom-right-radius: 3rem;
+    transition: all 0.3s ease-in;   
+    transition: all 0.3s ease-out; 
+    
+}
+
+header.header {
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+.section{
+    color: rgb(107, 101, 101);
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding: 2rem;
+    padding-top: 4rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: var(container-width);
+    min-height: 60vh;
+    text-align: center;
+}
+
+
+
+/*--------------------------------BURGER BUTTON & ALARM --------------------------------------------*/
+
+
+
+.burger{
+   position: fixed;
+   bottom: 1vh;
+   right: 1vw;
+   z-index: 999;
+   width: 4rem;
+   height: 4rem;
+   border-radius: 50%; 
+   padding: 0;
+   justify-content: center;
+   align-items: center; 
+   background-color: rgb(245, 156, 171);
+   
+      
+}
+
+
+
+.panel{
+    position: fixed;
+    z-index: 998;     /* Esto es para que a la hora de abrirse el panel, no tape el boton, no permitiendonos presionarlo nuevamente.*/
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(34, 34, 34, 0.86);
+    width: 100%;
+    overflow-y: auto;  /*Esto para que puedamos scrollear en el panel, de otra manera si intentamos scrollear, vamos a hacerlo pero en la pagina, no en el panel.*/
+    opacity: 0;
+    transition: transform .5s ease, opacity .5s ease;
+    transform: translate(0%, 100%);                     /* Esto quiere decir que el panel se esconde en Y */
+}
+
+
+.panel.is-active{
+    transform: translate(0,0);
+    opacity: 1;
+    
+}
+
+.menu{
+    width: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+}
+
+
+.menu a {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 2rem;
+    width: inherit;
+    display: block;
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: whitesmoke;
+    transition: all 0.5s ease;
+    
+}
+
+
+.menu a:hover{
+    color: rgba(34, 34, 34, 0.86);
+    background-color: palevioletred;
+    transition: all 0.1s ease;
+}
+
+#sectionReloj button{
+    border: thin solid;
+    background-color: rgba(174, 170, 170, 0.137);
+    border-radius: 0.2rem;
+}
+
+
+
+
+/*---------------------------------EVENTOS DEL TECLADO --------------------------------*/
+
+.stage{
+
+    display: flex;             /*Esto hace que la bola quede en el centro del cuadrado*/
+    min-height: 50vh;          /*Esto determina el largo del article, su tamaño, si ponemos 1000vh, ira hasta el fondo de la pagina por ejemplo.*/
+    background-color: rgba(138, 61, 73, 0.76);
+    /* border-top-left-radius: 2rem;
+    border-bottom-right-radius: 2rem; */
+}
+
+.ball{
+    
+    margin: auto;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    
+
+    /*Si solo pusieramos border-radius: 50% seria una pelota*/
+}
+
+
+
+
+
+/*------------------------FLECHITA-----------------------*/
+
+
+
+.scroll-top{
+    position: fixed;
+    z-index: 999;
+    bottom: 1vh;
+    width: 4rem;
+    height: 4rem;
+    right: calc(4.25rem + 1vw);    /*Con esto hacemos que este a la par del boton burger*/
+    border-radius: 50%;
+    background-color: rgb(245, 156, 171);
+    font-size: 2rem;
+    font-weight: bold;
+    color: rgb(222, 97, 139);
+    cursor: pointer;
+    outline: 0;
+    border: 0;
+    transition: all 0.3s ease-in;   /* Para que aparezca*/
+    transition: all 0.3s ease-out;  /* Para que desaparezca*/
+}
+
+.scroll-top:hover{
+    color: rgb(245, 156, 171);
+    background-color: rgb(222, 97, 139);
+}
+
+.hidden{                          /*Le creamos esta clase para poder esconder el boton cuando estemos arriba de la pagina*/
+    visibility: hidden;
+    opacity: 0;
+    
+}
+
+
+
+/*---------------------------- DARK MODE ----------------------------*/
+
+.dark{
+    position: fixed;
+    z-index: 999; 
+    bottom: 1vh;       /*Para que este abajo el boton*/
+    width: 4rem;
+    height: 4rem;
+    left: 1vw;        /*Para que este abajo a la izquierda el boton*/  
+    border-radius: 50%;
+    background-color: rgb(245, 156, 171);
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    outline: 0;
+    border: 0;  
+    transition: all 0.3s ease-out;
+    
+}
+
+
+.dark:hover{
+    background-color: rgb(217, 73, 121); 
+}
+
+
+
+.darkMode{
+    background-color: #222;
+    color: blanchedalmond;
+}
+
+
+/*--------------------------- DETECCION DE LA CONEXION ---------------------------------*/
+
+
+
+.online{
+     position: sticky;
+     top: 0;
+     z-index: 1000;
+     padding: 0.5rem;
+     font-size: 1rem;
+     font-weight: bold;
+     text-align: center;
+     background-color: rgb(31, 133, 31);
+     color: white;
+}
+
+.offline{
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 0.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    background-color: rgb(254, 34, 34);
+} 
+
+
+
+/* ------------------- WEBCAM --------------- */
+
+.video{
+    border-radius: 5rem;
+    border: thin solid;
+    border-width: 0.5cm;
+    border-color: rgb(223, 205, 178);
+}
+
+.videoError{
+    color: blanchedalmond;
+    padding: 0.4rem;
+    border-radius: 2rem;
+    background-color: rgb(223, 205, 178);
+    width: -moz-fit-content;
+    width: fit-content;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    text-decoration: none;
+}
+
+
+/*------------------------- Search Filter ---------------------*/
+
+.cards{
+    /* display: grid; */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.card{
+    display: inline-block;    /*Si usamos display grid, eliminamos inline block*/
+    border-radius: 2rem;
+    background-color: rgb(223, 205, 178);
+    border:dashed;
+    border-color:#dfcdb2;
+    transition: all 0.3s ease-out;
+}
+
+.card figcaption{
+    padding: 1rem;
+    color: blanchedalmond;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.card img{
+    width: 100%;
+    height: auto;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+}
+
+
+.filter{
+    display: none;
+    /* Display None no es animable. Por lo  tanto podemos hacerlo de la siguiente manera: */
+    
+    /* visibility: hidden;
+    opacity: 1;
+    order: 1; */             
+}
+
+
+
+/*----------------------- SLIDER -------------------------*/
+
+
+
+
+.slider{
+    position: relative;
+    text-align: center;
+    margin: 1rem auto;
+    width: 80%;
+}
+
+.slider-slides{
+    position: relative;
+    height: 400px;
+
+}
+
+.slider-slide{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;          /*Esto solo vuelve opaco el contenido, pero sus enlaces siguen ahi, por eso ponemos visibility hidden*/
+    visibility: hidden;  /*Para que sii tenemos enlaces en las imagenes, se desactiven*/
+    transition: opacity 1s ease;  /*Para el efecto de transicion*/
+}
+
+/* .slider-slide img{
+    height: inherit;     Hereda el alto de la foto original, el problema es que se puede deformar, por eso usamos object-fit y object-position. Aunque esto es cuando las imagenes no son cuadradas. En este caso lo son, 400x400.
+    width: inherit;
+    object-fit: cover;   
+    object-position: 50% 0%;
+} */
+
+.slider-slide.active{
+    opacity: 1;
+    visibility: visible;
+}
+
+
+
+.sliderBtns{
+ position: absolute; /*Al usar absolute pierde sus dimensiones de ancho, por eso ponemos width.*/
+ width: 100%;
+ top: 40%;        /*Para que los botones se coloquen a la mitad de la imagen*/
+ display: flex;   /*Para que los botones se pongan en fila*/
+ justify-content: space-between;
+ font-size: 4rem;
+}
+
+
+.slider a{
+    display: block;
+    background-color: transparent;
+    font-weight: lighter;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    font-style: italic;
+    text-decoration: none;
+    color: palevioletred;
+    transition: 0.3s ease;
+}
+
+
+.slider a:hover{
+    color: rgb(192, 59, 103);
+}
+
+
+
+
+/*------------------------------ SCROLLSPY -------------------------------*/
+
+/*Esto significa que los estilos siguientes van a implementarse cuando el tamaño de la pantalla tenga un ancho minimo de 1024px*/
+@media screen and (min-width: 1024px){
+
+body{
+    display: grid;
+    grid-template-columns: 85% 15%;
+    grid-template-rows: 5.2rem auto;
+    grid-template-areas: "header header" "main   panel";
+}
+
+main{
+    grid-area: main;
+}
+
+.header{
+    grid-area: header;
+
+}
+
+.panel{
+    grid-area: panel;
+    position: sticky;
+    top: 5.2rem;      /*La misma que el valor de padding de*/
+    transform: translate(0,0%);    /*panel is-active*/
+    opacity: 1;
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+    justify-content: start;
+    align-self: flex-end;
+}
+
+#burger{
+    display: none;
+}
+
+.menu{
+    justify-content: start;
+}
+
+.menu a {
+    font-size: 1rem;
+    padding: 1.20rem;
+}
+
+.menu a:hover,
+.menu a.active{
+    color: rgba(34, 34, 34, 0.86);
+    background-color: palevioletred;
+    transition: all 0.1s ease;
+}
+
+.scroll-top{
+    right: initial;
+    left: calc(4.25rem + 1vw);
+
+}
+
+}
+
+.videoI{
+    border: thin solid #222;
+    width: 85%;
+    transition: all 0.3s ease;
+}
+
+
+
+/*-------------------------FORM VALIDATION----------------------------*/
+.form{
+    --form-ok-color: green;
+    --form-error-color: red;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+
+.form > *{
+    padding: 1rem;
+    display: block;
+    margin: 1rem auto;
+    width: 70%;
+}
+
+.form span{
+    width: 50%;
+}
+
+.form input{
+ width: 50%;
+ transition: 0.5s ease-in;
+ transition: 0.5s ease-out;
+}
+
+.form input:hover{
+    width: 70%;
+    transition: 0.5s ease-in;
+    transition: 0.5s ease-out;
+}
+
+.form textarea{
+     resize: none;
+     border-color: white;
+     transition: 0.5s ease-in;
+     transition: 0.5s ease-out;
+}
+
+.form textarea:hover{
+    transition: 0.5s ease-in;
+    transition: 0.5s ease-out;
+    width: 80%;
+}
+
+.form #submit{
+    width: 15%;
+}
+
+.form-response,
+.form legend{
+    text-align: center;
+    font-weight: bold;
+    color: #d87093;
+}
+
+
+.none{
+    visibility: hidden;
+}
+
+
+.form input,
+textarea{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.form input[type = "submit"]{
+     cursor:pointer;
+}
+
+
+.form [required]:valid{
+    border-radius: 0.1rem;
+    border: thin solid green;
+}
+
+.form-error{
+    border-bottom-left-radius:1rem;
+    border-bottom-right-radius:1rem;
+    margin-top: -1rem;
+    padding: 0.5rem;
+    background-color: rgb(107, 101, 101);
+    transition: all 800ms ease;
+    color: whitesmoke;
+    font-size: 70%;
+}
+
+
+/*Padding de error---FORMS*/
+
+.form-error.is-active{
+    display: block;
+    animation: show-message 1s 1 normal 0s ease-out both;
+}
+
+@keyframes show-message{
+    0%{         /*Le decimos que empieze en 0% y visibility hidden*/
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    100%{      /*Le decimos que termine en 100%*/
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+
+
+/*--------------------------------------- NARRADOR DE VOZ ----------------------------*/
+
+
+
+.textA textarea{
+    padding: 1rem;
+    resize: none;
+    border-radius: 2rem;
+    border-color: white;
+    transition: 0.5s ease-in;
+    transition: 0.5s ease-out;
+}
+
+.speechTA:hover{
+    padding: 2rem;
+    border-radius: 2rem;
+   transition: 0.3s ease-in;
+}
+
+
+
+/* ------------------------------ UPLOADER DRAG AND DROP ------------------ */
+
+
+
+.dragdrop{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+}
+
+
+.drop-zone{
+    font-size: small;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    width: 80%;
+    height: 40vh;
+    color: palevioletred;
+    border: dotted rgb(231, 183, 141);
+    transition: all 0.3s ease-in-out;
+}
+
+.drop-zone.is-active{
+   border: thin dashed palevioletred;
+   background-color: peachpuff;
+   color: palevioletred;
+   animation: pulse 1.5s infinite;
+   animation-timing-function: linear;
+   transition: all 0.3s ease-in-out;
+   border-radius: 1rem;
+}
+
+@keyframes pulse{         /*Keyframes nos permite realizar animaciones. Es una interfaz*/
+   
+    0%,       /*Fotogramas*/
+    100% {
+        transform: scalle(1);
+    }
+    50%{
+        transform: scale(1.1);
+    }
+}
+
+.dragdrop progress{
+    margin-top: 1rem;
+} 
+
+.dragdrop span{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: small;
+    font-variant: small-caps;
+    background-color: peachpuff;
+    border-radius: 1rem;
+    padding: 1rem;
+    width: fit-content;
+    color: palevioletred;
+}
