@@ -248,6 +248,10 @@ header.header {
     color: blanchedalmond;
 }
 
+.darkMode button{
+    color: #222 !important;
+}
+
 
 /*--------------------------- DETECCION DE LA CONEXION ---------------------------------*/
 
