@@ -432,7 +432,7 @@ document.addEventListener("DOMContentLoaded", e=>{     //Solo puede haber un DOM
 
         <p> Tu posicion actual es: </p>
 
-        <ul style = "text-align: center; margin-left: auto; margin-right: auto;">
+        <ul className="geo-ul">
           <li> Latitud: <b> ${coords.latitude}</b></li>
           <br>
           <li> Longitud: <b> ${coords.longitude} </b></li>

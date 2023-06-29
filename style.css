@@ -444,13 +444,13 @@ main{
 .panel{
     grid-area: panel;
     position: sticky;
-    top: 5.2rem;      /*La misma que el valor de padding de*/
+    top: 0vh;
+          /*La misma que el valor de padding de*/
     transform: translate(0,0%);    /*panel is-active*/
+    height: 100vh;
     opacity: 1;
     border-top-left-radius: 0.5rem;
     border-bottom-left-radius: 0.5rem;
-    justify-content: start;
-    align-self: flex-end;
 }
 
 #burger{
@@ -630,7 +630,7 @@ textarea{
     justify-content: center;
     align-items: center;
     text-align: center;
-    min-height: 100vh;
+    margin-top: 5rem;
 }
 
 
@@ -683,4 +683,22 @@ textarea{
     padding: 1rem;
     width: fit-content;
     color: palevioletred;
+}
+
+
+
+
+#geolocation{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.geo-ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    
 }

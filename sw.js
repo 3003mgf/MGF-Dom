@@ -4,6 +4,7 @@ urlsToCache = [
     "./",
     "./style.css",
     "./script.js",
+    "https://cdnjs.cloudflare.com/ajax/libs/hamburgers/1.2.1/hamburgers.min.css",
     "./img"
 ]
 
