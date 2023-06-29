@@ -248,7 +248,15 @@ header.header {
     color: blanchedalmond;
 }
 
-.darkMode button{
+button.counter-btn{
+    background-color: white;
+    border: none;
+    border-radius: 0.2rem;
+    padding: 0.5rem 0.5rem;
+}
+
+.darkMode button.counter-btn{
+    background-color: white !important;
     color: #222 !important;
 }
 
